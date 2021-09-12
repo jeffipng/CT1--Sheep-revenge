@@ -5,17 +5,15 @@ using UnityEngine;
 
 public class animal3 : MonoBehaviour
 {
+    [SerializeField] GameManager gm;
     [SerializeField] float speed;
     [SerializeField] bool movingRight;
-    [SerializeField] GameManager gm;
     [SerializeField] float optrate;
     public float tempinicial = 0;
     public int contadorX = 5;
     public float nextopt = 0;
     float minX, maxX;
     public int vida = 3;
-   
-
 
     // Start is called before the first frame update
     void Start()
@@ -65,8 +63,6 @@ public class animal3 : MonoBehaviour
                 gm.Reducirnumeme();
                 Destroy(this.gameObject);
             }          
-
-            
         }
         if (colisionando.tag == "Disparo2")
         {
@@ -83,24 +79,19 @@ public class animal3 : MonoBehaviour
                 gm.Reducirnumeme();
                 Destroy(this.gameObject);
             }
-
-            
         }
-        
-       
     }
-    public void Tiempolento()
-    {
-        if (Input.GetKeyDown(KeyCode.M) && Time.time > nextopt)
-        {
 
+    public void Realentizar()
+    {
+        if (Input.GetKeyDown(KeyCode.T) && Time.time > nextopt)
+        {
             contadorX--;
             if (contadorX >= 0)
             {
                 nextopt = Time.time + optrate;
                 tempinicial = Time.unscaledTime;
                 Time.timeScale = 0.5f;
-
             }
         }
         if (tempinicial != 0)
@@ -109,10 +100,6 @@ public class animal3 : MonoBehaviour
             {
                 Time.timeScale = 1;
             }
-
         }
-
-
     }
-
 }

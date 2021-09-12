@@ -12,33 +12,24 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject canvas1;
     [SerializeField] int numen;
     
-
-   
-
-
     // Start is called before the first frame update
     void Start()
     {
         canvas.SetActive(false);
         canvas1.SetActive(false);
-
     }
         // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P)&& gameover == false)
             PauseGame();                  
-
     }
-
     public void Startgame()
     {
-        //cargar escena de juego
         SceneManager.LoadScene(1);
     }
     public void Startgame1()
     {
-        
         SceneManager.LoadScene(2);
     }
     public void Startgame2()
@@ -61,23 +52,15 @@ public class GameManager : MonoBehaviour
         numen = numen - 1;
         if (numen < 1)
         {
-
-            Ganar();
-
+           win();
         }
     }
-    void Ganar()
+    void win()
     {
-
         gameover = true;
         Time.timeScale = 0;
         player.gamepaused = true;
         Time.timeScale = gamepaused ? 0 : 1;
         canvas1.SetActive(gameover);
-
     }
-
-
-
-
 }

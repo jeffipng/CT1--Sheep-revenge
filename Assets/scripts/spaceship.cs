@@ -4,22 +4,19 @@ using UnityEngine;
 
 public class spaceship : MonoBehaviour
 {
-    [SerializeField] float speed;
     [SerializeField] GameObject disparo;
     [SerializeField] GameObject disparo2;
+    [SerializeField] float speed;
     [SerializeField] float fireRate;
     [SerializeField] float optrate;
     public float tiempoinicial=0;
     public int contadorX = 5;
-
-    float minX, maxX, minY, maxY;
-    float nextfire = 0;
     public float nextopt = 0;
-    bool Tipodisparo;
     public bool gamepaused = false;
     public int contt = 0;
-
-
+    bool Tipodisparo;
+    float minX, maxX, minY, maxY;
+    float nextfire = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +37,7 @@ public class spaceship : MonoBehaviour
     {
         if(!gamepaused)
         {
-            Tiempolento();
+            Realentizar();
 
             Mover();
             if (Tipodisparo)
@@ -96,9 +93,9 @@ public class spaceship : MonoBehaviour
             nextfire = Time.time + fireRate;
         }
     }
-    public void Tiempolento()
+    public void Realentizar()
     {
-        if (Input.GetKeyDown(KeyCode.M) && Time.time > nextopt)
+        if (Input.GetKeyDown(KeyCode.T) && Time.time > nextopt)
         {
 
             contadorX--;
